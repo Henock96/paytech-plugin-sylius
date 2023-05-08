@@ -1,0 +1,17 @@
+app.sylius_payment:
+    class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+    arguments: [ Acme\SyliusExamplePlugin\Payum\SyliusPaymentGatewayFactory ]
+    tags:
+        - { name: payum.gateway_factory_builder, factory: sylius_payment }
+
+Acme\SyliusExamplePlugin\Form\Type\SyliusGatewayConfigurationType:
+    tags:
+        - { name: sylius.gateway_configuration_type, type:sylius_payment, label: 'PayTech Payment' }
+        - { name: form.type }
+
+Acme\SyliusExamplePlugin\Payum\Action\CaptureAction:
+    public: true
+    arguments:
+        - '@sylius.http_client'
+    tags:
+        - { name: payum.action, factory: sylius_payment, alias: payum.action.capture }

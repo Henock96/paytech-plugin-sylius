@@ -1,6 +1,6 @@
 {
     "name": "big-h/paytech-payment",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "sylius-plugin",
     "keywords": [
         "sylius",

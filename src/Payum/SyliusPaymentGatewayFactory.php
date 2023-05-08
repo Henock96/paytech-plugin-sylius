@@ -13,7 +13,7 @@ final class SyliusPaymentGatewayFactory extends GatewayFactory{
     {
         $config->defaults([
             'payum.factory_name' =>'sylius_payment',
-            'payum.factory_title' => 'Paytech Payment',
+            'payum.factory_title' => 'PayTech Payment',
             'payum.action.status' => new StatusAction(),
         ]);
         $config['payum.api'] = function (ArrayObject $config): SyliusApi {
